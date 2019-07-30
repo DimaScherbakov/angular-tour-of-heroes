@@ -9,12 +9,4 @@
     {{ hero.name }}
   </li>
 </ul>
-
-<div *ngIf="selectedHero">
-  <h2>{{ selectedHero.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{ selectedHero.id }}</div>
-  <div><span>name: </span>{{ selectedHero.name }}</div>
-  <form action="" [formGroup]="newHeroForm">
-    <input type="text" formControlName="name" placeholder="name" />
-  </form>
-</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
