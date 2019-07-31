@@ -29,10 +29,13 @@ export class HeroSearchComponent implements OnInit {
       debounceTime(300),
 
       // ignore new term if same as previous term
-      distinctUntilChanged(),
+      // distinctUntilChanged(),
 
       // switch to new search observable each time the term changes
-      switchMap((term: string) => this.heroService.searchHeroes(term))
+      switchMap((term: string) => {
+        console.log('term in subscription:', term);
+        return this.heroService.searchHeroes(term);
+      })
     );
   }
   __createHeroForm() {
